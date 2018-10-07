@@ -9,7 +9,7 @@ env = get_env("PongNoFrameskip-v4", 4)
 model_path = "dqn.pth"
 dqn = DQN(env.observation_space.shape, env.action_space.n)
 if os.path.exists(model_path):
-    dqn = torch.load(model_path)
+    dqn.load_state_dict(torch.load(model_path))
 
 S = env.reset()
 done = False
